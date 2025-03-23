@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Library_Management_System.Models.Category>
+
+@{
+    ViewData["Title"] = "CategoryHome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CategoryHome</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CatName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CatName)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.CategoryId" class="btn btn-primary">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CategoryId" class="btn btn-primary">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-primary" onclick="return onclick('Are you sure ?')">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,63 @@
+﻿@model Library_Management_System.Models.User
+
+@{
+    ViewData["Title"] = "ForgetPwd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ForgetPwd</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ForgetPwd">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ReTypePaasword" class="control-label"></label>
+                <input asp-for="ReTypePaasword" class="form-control" />
+                <span asp-validation-for="ReTypePaasword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SecurityQuestion" class="control-label"></label>
+                <select asp-for="SecurityQuestion" class="form-control">
+                    <option>-Select-</option>
+                    <option>What is your date of birth?</option>
+                    <option>What’s your favorite movie?</option>
+                    <option>What was your first car?</option>
+                </select>
+                <span asp-validation-for="SecurityQuestion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecurityAns" class="control-label"></label>
+                <input asp-for="SecurityAns" class="form-control" />
+                <span asp-validation-for="SecurityAns" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <input type="submit" value="Reset" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Book">Back </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

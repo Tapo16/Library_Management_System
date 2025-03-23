@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Library_Management_System.Models.Book>
+
+@{
+    ViewData["Title"] = "Book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Book</h1>
+
+<div class="alert-info text-info">
+    @TempData["Message"]
+</div>
+
+<div>
+    <form asp-action="Book">
+        <input type="search" name="searchText" placeholder="Type Here" value="@ViewBag.Message" />
+        <input type="submit" class="btn btn-primary" />
+        <a asp-action="Book" class="btn btn-success">Reset</a>
+    </form>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublisherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dop)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookFilePath)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dop)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                 <img src="~/BookImg/@item.BookFilePath/@item.BookFile" height="100" width="100" class="rounded-circle" />
+            </td>
+            <td>
+                    <a asp-action="Borrow" asp-route-id="@item.BookId" class="btn btn-info">Borrow</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
