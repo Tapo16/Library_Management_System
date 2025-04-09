@@ -19,8 +19,8 @@ namespace Library_Management_System.Models
          public string Email { get; set; }
 
          [DataType(DataType.Password)]
-        [RegularExpression("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W_]).{6,10}$",
-     ErrorMessage = "Password must be between 6 and 10 characters and contain one uppercase letter, one lowercase letter, one digit and one special character.")]
+      //  [RegularExpression("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W_]).{6,10}$",
+  //   ErrorMessage = "Password must be between 6 and 10 characters and contain one uppercase letter, one lowercase letter, one digit and one special character.")]
 
         [MaxLength(20)]
          public string Password { get; set; }
@@ -28,8 +28,8 @@ namespace Library_Management_System.Models
         
         [DataType(DataType.Password)]
         [Compare("Password")]
-        [RegularExpression("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W_]).{6,10}$",
-     ErrorMessage = "Password must be between 6 and 10 characters and contain one uppercase letter, one lowercase letter, one digit and one special character.")]
+      //  [RegularExpression("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W_]).{6,10}$",
+  //   ErrorMessage = "Password must be between 6 and 10 characters and contain one uppercase letter, one lowercase letter, one digit and one special character.")]
 
         [MaxLength(20)]
         [NotMapped]
@@ -38,7 +38,6 @@ namespace Library_Management_System.Models
 
         [DataType(DataType.Date)]
         public DateTime Dob { get; set; }
-
 
         [MaxLength(250)]
         public string SecurityQuestion { get; set; }

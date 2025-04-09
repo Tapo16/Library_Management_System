@@ -46,6 +46,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.BookFilePath)
             </th>
+
             <th></th>
         </tr>
     </thead>
@@ -73,7 +74,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
-
             <td>
                 <img src="~/BookImg/@item.BookFilePath/@item.BookFile" height="100" width="100" class="rounded-circle"/>
             </td>

@@ -237,6 +237,7 @@ namespace Library_Management_System.Controllers
         {
             try
             {
+                obj.Availability = obj.Stock;
                 _db.tblbook.Entry(obj).State = EntityState.Modified;
                 await _db.SaveChangesAsync();
 
